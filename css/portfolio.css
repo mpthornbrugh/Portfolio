@@ -1,0 +1,22 @@
+.wrapper {
+	margin: 20px;
+}
+
+.tile {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+.bottomBar {
+	text-align: right;
+	padding-right: 20px;
+	padding-left: 20px;
+	font-size:15px;
+	background: white;
+	position: fixed;
+	z-index: 100;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}

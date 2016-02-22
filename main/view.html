@@ -1,4 +1,10 @@
-<div>
-	Michael Thornbrugh's Portfolio<br>
-	Work in Progress
+<div id="wrapper" class="wrapper">
+	<div ng-repeat="tile in tiles" class="tile" ng-style="{'background-color':tile.color}">
+		{{tile.description}}
+	</div>
+
+	<div class="bottomBar">
+		Michael Thornbrugh's Portfolio. Work in progress.
+	</div>
 </div>
+
