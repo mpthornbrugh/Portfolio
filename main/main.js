@@ -17,35 +17,35 @@ angular.module('portfolio.main', ['ngRoute'])
 		$scope.tiles = [
 			{
 				"description":"Logo",
-				"color":"red"
+				"color":"#354458"
 			},
 			{
 				"description":"About Me",
-				"color":"blue"
+				"color":"#3A9AD9"
 			},
 			{
 				"description":"Social",
-				"color":"green"
+				"color":"#29ABA4"
 			},
 			{
 				"description":"Welcome Message",
-				"color":"pink"
+				"color":"#ADC4CC"
 			},
 			{
 				"description":"Projects",
-				"color":"blue"
+				"color":"#EB7260"
 			},
 			{
 				"description":"Contact Me",
-				"color":"green"
+				"color":"#A3D39C"
 			},
 			{
 				"description":"Picture",
-				"color":"yellow"
+				"color":"#354458"
 			},
 			{
 				"description":"Resume",
-				"color":"beige"
+				"color":"#3A9AD9"
 			}
 		];
 
