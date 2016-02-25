@@ -2,6 +2,7 @@
 
 angular.module('portfolio', [
 	'ngRoute',
+	'ngAnimate',
 	'portfolio.main',
 	'portfolio.about',
 	'portfolio.contact',

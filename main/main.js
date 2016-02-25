@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('portfolio.main', ['ngRoute'])
+angular.module('portfolio.main', ['ngRoute', 'ngAnimate'])
 
 	.config(['$routeProvider', function ($routeProvider) {
 		$routeProvider.when('/main', {

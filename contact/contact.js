@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('portfolio.contact', ['ngRoute'])
+angular.module('portfolio.contact', ['ngRoute', 'ngAnimate'])
 
 	.config(['$routeProvider', function ($routeProvider) {
 		$routeProvider.when('/contact', {

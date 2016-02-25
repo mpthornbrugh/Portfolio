@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('portfolio.about', ['ngRoute'])
+angular.module('portfolio.about', ['ngRoute', 'ngAnimate'])
 
 	.config(['$routeProvider', function ($routeProvider) {
 		$routeProvider.when('/about', {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('portfolio.social', ['ngRoute'])
+angular.module('portfolio.social', ['ngRoute', 'ngAnimate'])
 
 	.config(['$routeProvider', function ($routeProvider) {
 		$routeProvider.when('/social', {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('portfolio.resume', ['ngRoute'])
+angular.module('portfolio.resume', ['ngRoute', 'ngAnimate'])
 
 	.config(['$routeProvider', function ($routeProvider) {
 		$routeProvider.when('/resume', {
