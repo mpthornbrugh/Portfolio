@@ -58,12 +58,7 @@ angular.module('portfolio.main', ['ngRoute'])
 		];
 
 		$scope.itemClick = function (tile) {
-			if (tile.class == "tile4") {
-				tile.class = "tile9";
-			}
-			else if (tile.class == "tile9") {
-				tile.class = "tile4";
-			}
+
 		};
 
 		var calculatedWidth = ($(window).width() - 58)/2;
