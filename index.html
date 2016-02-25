@@ -27,6 +27,20 @@
 <script src="resume/resume.js"></script>
 <script src="social/social.js"></script>
 
+<div class="topBar">
+	<div ng-click="showMenu = !showMenu" class="topBarMenuIcon">
+		<img src="images/3_bar_menu.png" class="barMenuIconImg" style="width:32px;height:32px;background:rgb(212, 209, 209);border-radius:5px;">
+	</div>
+	<div ng-show="showMenu" class="menuContent">
+		<a href="#"><button type="submit" class="btn btn-default">Home</button></a>
+		<a href="#"><button type="submit" class="btn btn-default">About Me</button>
+		<a href="#"><button type="submit" class="btn btn-default">Social</button></a>
+		<a href="#"><button type="submit" class="btn btn-default">Contact Me</button></a>
+		<a href="#"><button type="submit" class="btn btn-default">Projects</button></a>
+		<a href="#"><button type="submit" class="btn btn-default">Resume</button></a>
+	</div>
+</div>
+
 <div ng-view></div>
 
 <div class="bottomBar">

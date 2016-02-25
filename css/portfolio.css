@@ -13,17 +13,30 @@
 	box-shadow: none;
 }
 
+.topBar {
+	top: 0;
+	left: 0;
+	border-bottom: 1px solid black;
+	background: #e9e9e9;
+	z-index: 100;
+	padding-right: 20px;
+	padding-left: 20px;
+	text-align: right;
+	height: 43px;
+}
+
 .bottomBar {
 	text-align: right;
 	padding-right: 20px;
 	padding-left: 20px;
 	font-size:15px;
-	background: white;
+	background: #e9e9e9;
 	position: fixed;
 	z-index: 100;
 	bottom: 0;
 	left: 0;
 	width: 100%;
+	border-top: 1px solid black;
 }
 
 .tile1 {
@@ -56,4 +69,27 @@
 
 .tile8 {
 	background-color: #3A9AD9;
+}
+
+.menuContent {
+	float:right;
+	padding-right: 10px;
+}
+
+.topBarMenuIcon {
+	width:32px;
+	float:right;
+	border:1px;
+}
+
+.barMenuIconImg {
+	width:32px;
+	height:32px;
+	background:rgb(212, 209, 209);
+	border-radius:5px;
+	box-shadow:inset 0 0 0 99999px rgba(255,255,255,0.4);
+}
+
+.barMenuIconImg:hover {
+	box-shadow:none;
 }
