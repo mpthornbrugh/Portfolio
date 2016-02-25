@@ -57,7 +57,9 @@ angular.module('portfolio.main', ['ngRoute'])
 		];
 
 		$scope.itemClick = function (tile) {
-
+			if (tile.redirect != "") {
+				$location.path(tile.redirect);
+			}
 		};
 
 		var isMobile = false; //initiate as false
