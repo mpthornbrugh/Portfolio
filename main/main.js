@@ -17,37 +17,54 @@ angular.module('portfolio.main', ['ngRoute'])
 		$scope.tiles = [
 			{
 				"description":"Logo",
-				"color":"#354458"
-			},
-			{
-				"description":"About Me",
-				"color":"#3A9AD9"
-			},
-			{
-				"description":"Social",
-				"color":"#29ABA4"
+				"class":"tile1",
+				"redirect": ""
 			},
 			{
 				"description":"Welcome Message",
-				"color":"#ADC4CC"
+				"class":"tile4",
+				"redirect": ""
+			},
+			{
+				"description":"About Me",
+				"class":"tile2",
+				"redirect": "/about"
+			},
+			{
+				"description":"Social",
+				"class":"tile3",
+				"redirect": "/social" //May want to adjust this to just have the social buttons on the tile
 			},
 			{
 				"description":"Projects",
-				"color":"#EB7260"
+				"class":"tile5",
+				"redirect": "/projects"
 			},
 			{
 				"description":"Contact Me",
-				"color":"#A3D39C"
+				"class":"tile6",
+				"redirect": "/contact"
 			},
 			{
 				"description":"Picture",
-				"color":"#354458"
+				"class":"tile7",
+				"redirect": ""
 			},
 			{
 				"description":"Resume",
-				"color":"#3A9AD9"
+				"class":"tile8",
+				"redirect": "/resume"
 			}
 		];
+
+		$scope.itemClick = function (tile) {
+			if (tile.class == "tile4") {
+				tile.class = "tile9";
+			}
+			else if (tile.class == "tile9") {
+				tile.class = "tile4";
+			}
+		};
 
 		var calculatedWidth = ($(window).width() - 58)/2;
 		var calculatedHeight = MIN_HEIGHT_OF_TILES;
