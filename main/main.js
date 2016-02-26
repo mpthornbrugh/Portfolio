@@ -17,42 +17,50 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate'])
 			{
 				"description":"Logo",
 				"class":"tile1",
-				"redirect": ""
+				"redirect": "",
+				"image":""
 			},
 			{
 				"description":"Welcome Message",
 				"class":"tile4",
-				"redirect": ""
+				"redirect": "",
+				"image":""
 			},
 			{
 				"description":"About Me",
 				"class":"tile2",
-				"redirect": "/about"
+				"redirect": "/about",
+				"image":""
 			},
 			{
 				"description":"Social",
 				"class":"tile3",
-				"redirect": "/social" //May want to adjust this to just have the social buttons on the tile
+				"redirect": "/social", //May want to adjust this to just have the social buttons on the tile
+				"image":""
 			},
 			{
 				"description":"Projects",
 				"class":"tile5",
-				"redirect": "/projects"
+				"redirect": "/projects",
+				"image":""
 			},
 			{
 				"description":"Contact Me",
 				"class":"tile6",
-				"redirect": "/contact"
+				"redirect": "/contact",
+				"image":""
 			},
 			{
 				"description":"Picture",
 				"class":"tile7",
-				"redirect": ""
+				"redirect": "",
+				"image":"images/Michael_LinkedIn_Photo.jpg"
 			},
 			{
 				"description":"Resume",
 				"class":"tile8",
-				"redirect": "/resume"
+				"redirect": "/resume",
+				"image":""
 			}
 		];
 
@@ -73,6 +81,7 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate'])
 		var calculatedHeight = $(window).height()/4 - 26;
 
 		$("<style>.tile { width: " + calculatedWidth + "px; height: " + calculatedHeight + "px; float: left; }</style>").appendTo('body');
+		$("<style>.tileImg { height: " + (calculatedHeight/2) + "px; }</style>").appendTo('body');
 
 		var wrapper = $("#wrapper");
 		wrapper.height(($scope.tiles.length/2) * calculatedHeight);
