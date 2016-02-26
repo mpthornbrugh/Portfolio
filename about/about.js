@@ -10,7 +10,7 @@ angular.module('portfolio.about', ['ngRoute', 'ngAnimate'])
 	}])
 
 	.controller('AboutCtrl', ['$scope', '$location', function ($scope, $location) {
-
+		$scope.pageClass = 'page-home';
 
 
 	}]);

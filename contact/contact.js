@@ -10,7 +10,7 @@ angular.module('portfolio.contact', ['ngRoute', 'ngAnimate'])
 	}])
 
 	.controller('ContactCtrl', ['$scope', '$location', function ($scope, $location) {
-
+		$scope.pageClass = 'page-home';
 
 
 	}]);

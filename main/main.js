@@ -10,6 +10,7 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate'])
 	}])
 
 	.controller('MainCtrl', ['$scope', '$location', function ($scope, $location) {
+		$scope.pageClass = 'page-home';
 
 		$scope.showMenu = false;
 
@@ -77,7 +78,7 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate'])
 
 		var isHeightLarger = $(document).height() > $(document).width();
 
-		var calculatedWidth = ($(window).width() - 40)/2;
+		var calculatedWidth = ($(window).width() - 60)/2;
 		var calculatedHeight = $(window).height()/4 - 26;
 
 		$("<style>.tile { width: " + calculatedWidth + "px; height: " + calculatedHeight + "px; float: left; }</style>").appendTo('body');
@@ -89,7 +90,7 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate'])
 		window.onresize = function () {
 			wrapper.height(($scope.tiles.length/2) * calculatedHeight);
 
-			calculatedWidth = ($(window).width() - 40)/2;
+			calculatedWidth = ($(window).width() - 60)/2;
 			calculatedHeight = $(window).height()/4 - 26;
 
 			var elements = document.querySelectorAll('.tile');
