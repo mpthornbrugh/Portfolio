@@ -1,8 +1,20 @@
 <div id="wrapper" class="wrapper">
+
+	<!--
+	Need to do some work depending on the style of the tile.
+	Styles:
+	1 - Text Only
+	2 - Picture Only
+	3 - Icon and Text
+	-->
 	<div ng-repeat="tile in tiles" class="tile shake-slow" ng-class="tile.class" ng-click="itemClick(tile)">
 		<img ng-src="{{tile.image}}" class="tileImg">
 		<br/>
 		<p>{{tile.description}}</p>
+	</div>
+
+	<div class="bottomBar">
+		Michael Thornbrugh's Portfolio. Work in progress.
 	</div>
 </div>
 
