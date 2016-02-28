@@ -108,6 +108,10 @@
 
 }
 
+.aboutPage {
+	background: green;
+}
+
 
 
 
@@ -142,9 +146,9 @@
 @keyframes rotateFall {
 	0%      { transform: rotateZ(0deg); }
 	20%     { transform: rotateZ(10deg); animation-timing-function: ease-out; }
-	40%     { transform: rotateZ(17deg); }
+	40%     { transform: rotateZ(17deg); opacity: 0.5; }
 	60%     { transform: rotateZ(16deg); }
-	100%    { transform: translateY(100%) rotateZ(17deg); }
+	100%    { transform: translateY(100%) rotateZ(17deg); opacity: 0;}
 }
 
 /* slide in from the bottom */
@@ -154,7 +158,7 @@
 
 /* rotate out newspaper */
 @keyframes rotateOutNewspaper {
-	to      { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+	to      { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; transform-origin: 50% 50%; }
 }
 
 /* entering animations --------------------------------------- */
@@ -173,16 +177,4 @@
 @keyframes slideInUp {
 	from    { transform:translateY(100%); }
 	to      { transform: translateY(0); }
-}
-
-/* light speed out */
-@keyframes lightSpeedOut {
-	0% {
-		opacity: 1;
-	}
-
-	100% {
-		transform: translate3d(100%, 0, 0) skewX(30deg);
-		opacity: 0;
-	}
 }
