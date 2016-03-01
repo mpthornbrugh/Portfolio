@@ -110,13 +110,43 @@
 
 .aboutPage {
 	background: green;
+	position: absolute;
+	top: 43px;
+	bottom: 0;
+	width: 100%;
 }
 
+.contactPage {
+	background: blue;
+	position: absolute;
+	top: 43px;
+	bottom: 0;
+	width: 100%;
+}
 
+.projectsPage {
+	background: red;
+	position: absolute;
+	top: 43px;
+	bottom: 0;
+	width: 100%;
+}
 
+.resumePage {
+	background: orange;
+	position: absolute;
+	top: 43px;
+	bottom: 0;
+	width: 100%;
+}
 
-
-
+.socialPage {
+	background: #354458;
+	position: absolute;
+	top: 43px;
+	bottom: 0;
+	width: 100%;
+}
 
 
 .ng-enter       { z-index: 8888; }
@@ -134,7 +164,19 @@
 
 /* contact ---------------------- */
 .page-contact.ng-leave      { transform-origin: 50% 50%; animation: rotateOutNewspaper .5s both ease-in; }
-.page-contact.ng-enter      { animation:slideInUp 0.5s both ease-in; }
+.page-contact.ng-enter      { animation:slideInRight 0.5s both ease-in; }
+
+/* projects ---------------------- */
+.page-projects.ng-leave      { transform-origin: 50% 50%; animation: rotateOutNewspaper .5s both ease-in; }
+.page-projects.ng-enter      { animation:slideInRight 0.5s both ease-in;}
+
+/* resume ---------------------- */
+.page-resume.ng-leave      { transform-origin: 50% 50%; animation: rotateOutNewspaper .5s both ease-in; }
+.page-resume.ng-enter      { animation:slideInRight 0.5s both ease-in; }
+
+/* social ---------------------- */
+.page-social.ng-leave      { transform-origin: 50% 50%; animation: rotateOutNewspaper .5s both ease-in; }
+.page-social.ng-enter      { animation:slideInRight 0.5s both ease-in; }
 
 
 
@@ -151,9 +193,14 @@
 	100%    { transform: translateY(100%) rotateZ(17deg); opacity: 0;}
 }
 
-/* slide in from the bottom */
+/* slide out to the left */
 @keyframes slideOutLeft {
 	to      { transform: translateX(-100%); }
+}
+
+/* slide out to the right */
+@keyframes slideOutRight {
+	to      { transform: translateX(100%); }
 }
 
 /* rotate out newspaper */
@@ -169,8 +216,8 @@
 
 /* slide in from the right */
 @keyframes slideInRight {
-	from    { transform:translateX(100%); }
-	to      { transform: translateX(0); }
+	from    { transform:translateX(100%);opacity:0.3; }
+	to      { transform: translateX(0);opacity:1; }
 }
 
 /* slide in from the bottom */

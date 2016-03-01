@@ -10,7 +10,7 @@ angular.module('portfolio.resume', ['ngRoute', 'ngAnimate'])
 	}])
 
 	.controller('ResumeCtrl', ['$scope', '$location', function ($scope, $location) {
-		$scope.pageClass = 'page-home';
+		$scope.pageClass = 'page-resume';
 
 
 	}]);
