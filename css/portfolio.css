@@ -109,15 +109,16 @@
 }
 
 .aboutPage {
-	background: green;
+	background: #3A9AD9;
 	position: absolute;
 	top: 43px;
 	bottom: 0;
 	width: 100%;
+	font-size: 16px;
 }
 
 .contactPage {
-	background: blue;
+	background: #A3D39C;
 	position: absolute;
 	top: 43px;
 	bottom: 0;
@@ -125,7 +126,7 @@
 }
 
 .projectsPage {
-	background: red;
+	background: #EB7260;
 	position: absolute;
 	top: 43px;
 	bottom: 0;
@@ -133,7 +134,7 @@
 }
 
 .resumePage {
-	background: orange;
+	background: #3A9AD9;
 	position: absolute;
 	top: 43px;
 	bottom: 0;
@@ -141,7 +142,7 @@
 }
 
 .socialPage {
-	background: #354458;
+	background: #29ABA4;
 	position: absolute;
 	top: 43px;
 	bottom: 0;
