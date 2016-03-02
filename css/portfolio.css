@@ -117,6 +117,18 @@
 	font-size: 16px;
 }
 
+.aboutATags {
+	color:#B74733;
+}
+
+.aboutATags:hover {
+	color:#7C232E;
+}
+
+.tooltipHover {
+	color: #555555;
+}
+
 .contactPage {
 	background: #A3D39C;
 	position: absolute;
