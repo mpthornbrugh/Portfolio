@@ -1,3 +1,5 @@
+html, body { height: 100%; width: 100%; margin: 0; }
+
 .wrapper {
 	border: 30px solid white;
 	height:100%;
@@ -7,6 +9,7 @@
 }
 
 .tile {
+	font-family: myFirstFont;
 	display:flex;
 	justify-content:center;
 	align-items:center;
@@ -14,6 +17,7 @@
 	float:left;
 	width:50%;
 	height:250px;
+	text-transform: uppercase;
 }
 
 .tile:hover {
@@ -29,7 +33,13 @@
 	padding-right: 20px;
 	padding-left: 20px;
 	text-align: right;
-	height: 43px;
+	height: 10%;
+}
+
+.topBarMenuIcon {
+	width:32px;
+	float:right;
+	border:1px;
 }
 
 .bottomBar {
@@ -78,12 +88,6 @@
 	padding-right: 10px;
 }
 
-.topBarMenuIcon {
-	width:32px;
-	float:right;
-	border:1px;
-}
-
 .barMenuIconImg {
 	width:32px;
 	height:32px;
@@ -98,6 +102,11 @@
 
 .tileImg {
 	height:200px;
+	border-radius: 50%;
+}
+
+.smallTileImg {
+	height:75px;
 }
 
 .tileHalfImg {
@@ -237,4 +246,14 @@
 @keyframes slideInUp {
 	from    { transform:translateY(100%); }
 	to      { transform: translateY(0); }
+}
+
+
+
+/* FONTS
+==========================================================================*/
+
+@font-face {
+	font-family: myFirstFont;
+	src: url(../includes/exo/Exo-ExtraBoldItalic.otf);
 }

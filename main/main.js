@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('portfolio.main', ['ngRoute', 'ngAnimate'])
+angular.module('portfolio.main', ['ngRoute', 'ngAnimate', 'ngSanitize'])
 
 	.config(['$routeProvider', function ($routeProvider) {
 		$routeProvider.when('/main', {
@@ -9,7 +9,7 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate'])
 		});
 	}])
 
-	.controller('MainCtrl', ['$scope', '$location', function ($scope, $location) {
+	.controller('MainCtrl', ['$scope', '$location', '$sce', function ($scope, $location, $sce) {
 		$scope.pageClass = 'page-home';
 
 		$scope.showMenu = false;
@@ -18,17 +18,18 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate'])
 		* 1 - Text Only
 		* 2 - Picture Only
 		* 3 - Icon and Text
+		* 4 - Text and Multiple small icons (social)
 		* */
 		$scope.tiles = [
 			{
 				"description":"Logo",
 				"class":"tile1",
 				"redirect": "",
-				"image":"",
-				"style":3
+				"image":"images/logo.svg",
+				"style":2
 			},
 			{
-				"description":"Welcome Message",
+				"description":"Welcome<br>To the Online Portfolio<br>Of Michael Thornbrugh",
 				"class":"tile4",
 				"redirect": "",
 				"image":"",
@@ -38,21 +39,25 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate'])
 				"description":"About Me",
 				"class":"tile2",
 				"redirect": "/about",
-				"image":"",
+				"image":"includes/animat-essential/image/animat-image-color.gif",
 				"style":3
 			},
 			{
 				"description":"Social",
 				"class":"tile3",
 				"redirect": "/social", //May want to adjust this to just have the social buttons on the tile
-				"image":"",
-				"style":3
+				"image":[
+					"images/facebook_icon.png",
+					"images/google_plus_icon.svg",
+					"images/linkedin_icon.png"
+				],
+				"style":4
 			},
 			{
 				"description":"Projects",
 				"class":"tile5",
 				"redirect": "/projects",
-				"image":"",
+				"image":"includes/animat-essential/code/animat-code-color.gif",
 				"style":3
 			},
 			{
@@ -73,7 +78,7 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate'])
 				"description":"Resume",
 				"class":"tile8",
 				"redirect": "/resume",
-				"image":"",
+				"image":"includes/animat-essential/pencil/animat-pencil-color.gif",
 				"style":3
 			}
 		];

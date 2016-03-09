@@ -3,6 +3,7 @@
 angular.module('portfolio', [
 	'ngRoute',
 	'ngAnimate',
+	'ngSanitize',
 	'portfolio.main',
 	'portfolio.about',
 	'portfolio.contact',
