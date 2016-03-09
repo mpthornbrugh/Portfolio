@@ -17,13 +17,17 @@ angular.module('portfolio.contact', ['ngRoute', 'ngAnimate'])
 		$scope.contacts = [
 			{
 				"description":"(720) 903-0521",
-				"image":"images/logo.svg"
+				"image":"fa-mobile"
 			},
 			{
 				"description":"mpthornbrugh@gmail.com",
-				"image":"images/logo-color.svg"
+				"image":"fa-envelope-o"
 			}
 		];
+
+		$scope.toClipboard = function (text) {
+			window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+		};
 
 		var isMobile = false; //initiate as false
 		// device detection
