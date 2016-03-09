@@ -25,22 +25,25 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate', 'ngSanitize'])
 				"description":"Logo",
 				"class":"tile1",
 				"redirect": "",
-				"image":"images/logo.svg",
-				"style":2
+				"image":"images/logo-color.svg",
+				"style":2,
+				"cursor":"default"
 			},
 			{
 				"description":"Welcome<br>To the Online Portfolio<br>Of Michael Thornbrugh",
 				"class":"tile4",
 				"redirect": "",
 				"image":"",
-				"style":1
+				"style":1,
+				"cursor":"default"
 			},
 			{
 				"description":"About Me",
 				"class":"tile2",
 				"redirect": "/about",
 				"image":"includes/animat-essential/image/animat-image-color.gif",
-				"style":3
+				"style":3,
+				"cursor":"pointer"
 			},
 			{
 				"description":"Social",
@@ -51,35 +54,40 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate', 'ngSanitize'])
 					"images/google_plus_icon.svg",
 					"images/linkedin_icon.png"
 				],
-				"style":4
+				"style":4,
+				"cursor":"pointer"
 			},
 			{
 				"description":"Projects",
 				"class":"tile5",
 				"redirect": "/projects",
 				"image":"includes/animat-essential/code/animat-code-color.gif",
-				"style":3
+				"style":3,
+				"cursor":"pointer"
 			},
 			{
 				"description":"Contact Me",
 				"class":"tile6",
 				"redirect": "/contact",
 				"image":"includes/animat-essential/chat/animat-chat-color.gif",
-				"style":3
+				"style":3,
+				"cursor":"pointer"
 			},
 			{
 				"description":"Picture",
 				"class":"tile7",
 				"redirect": "",
 				"image":"images/Michael_LinkedIn_Photo.jpg",
-				"style":2
+				"style":2,
+				"cursor":"default"
 			},
 			{
 				"description":"Resume",
 				"class":"tile8",
 				"redirect": "/resume",
 				"image":"includes/animat-essential/pencil/animat-pencil-color.gif",
-				"style":3
+				"style":3,
+				"cursor":"pointer"
 			}
 		];
 

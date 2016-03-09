@@ -12,6 +12,8 @@ angular.module('portfolio.projects', ['ngRoute', 'ngAnimate'])
 	.controller('ProjectsCtrl', ['$scope', '$location', function ($scope, $location) {
 		$scope.pageClass = 'page-projects';
 
+		$scope.showMenu = false;
+
 
 	}]);
 

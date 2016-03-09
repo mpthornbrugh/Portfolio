@@ -31,17 +31,18 @@
 <script src="social/social.js"></script>
 
 <div class="topBar">
-	<div ng-click="showMenu = !showMenu" class="topBarMenuIcon">
-		<img src="images/3_bar_menu.png" class="barMenuIconImg" style="width:32px;height:32px;background:rgb(212, 209, 209);border-radius:5px;">
+	<div style="height:100%">
+		<img ng-click="showMenu = !showMenu" src="images/logo.svg" class="topBarImg">
 	</div>
-	<div ng-show="showMenu" class="menuContent">
-		<a href="#/main"><button type="submit" class="btn btn-default" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">Home</button></a>
-		<a href="#/about"><button type="submit" class="btn btn-default" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">About Me</button>
-		<a href="#/social"><button type="submit" class="btn btn-default" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">Social</button></a>
-		<a href="#/contact"><button type="submit" class="btn btn-default" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">Contact Me</button></a>
-		<a href="#/projects"><button type="submit" class="btn btn-default" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">Projects</button></a>
-		<a href="#/resume"><button type="submit" class="btn btn-default" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">Resume</button></a>
-	</div>
+</div>
+
+<div ng-show="showMenu" class="overlayDiv">
+	<a href="#/main"><div ng-click="showMenu = !showMenu" class="menuDiv">Home</div></a>
+	<a href="#/about"><div ng-click="showMenu = !showMenu" class="menuDiv">About Me</div></a>
+	<a href="#/social"><div ng-click="showMenu = !showMenu" class="menuDiv">Social</div></a>
+	<a href="#/contact"><div ng-click="showMenu = !showMenu" class="menuDiv">Contact Me</div></a>
+	<a href="#/projects"><div ng-click="showMenu = !showMenu" class="menuDiv">Projects</div></a>
+	<a href="#/resume"><div ng-click="showMenu = !showMenu" class="menuDiv">Resume</div></a>
 </div>
 
 <div class="page {{pageClass}}" ng-view></div>

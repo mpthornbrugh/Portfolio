@@ -8,7 +8,7 @@
 	3 - Icon and Text
 	4 - Text and multiple small icons (social)
 	-->
-	<div ng-repeat="tile in tiles" class="tile shake-slow" ng-class="tile.class" ng-click="itemClick(tile)">
+	<div ng-repeat="tile in tiles" class="tile shake-slow" ng-class="tile.class" ng-click="itemClick(tile)" ng-style="{cursor: tile.cursor}">
 		<div>
 			<img ng-if="tile.style == 2 || tile.style == 3" ng-src="{{tile.image}}" class="tileImg">
 			<!--<br ng-if="tile.style == 3"/>-->

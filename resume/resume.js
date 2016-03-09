@@ -12,6 +12,8 @@ angular.module('portfolio.resume', ['ngRoute', 'ngAnimate'])
 	.controller('ResumeCtrl', ['$scope', '$location', function ($scope, $location) {
 		$scope.pageClass = 'page-resume';
 
+		$scope.showMenu = false;
+
 
 	}]);
 

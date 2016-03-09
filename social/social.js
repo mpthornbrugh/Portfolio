@@ -12,6 +12,8 @@ angular.module('portfolio.social', ['ngRoute', 'ngAnimate'])
 	.controller('SocialCtrl', ['$scope', '$location', function ($scope, $location) {
 		$scope.pageClass = 'page-social';
 
+		$scope.showMenu = false;
+
 
 	}]);
 
