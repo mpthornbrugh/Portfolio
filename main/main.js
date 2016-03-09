@@ -64,7 +64,7 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate', 'ngSanitize'])
 				"description":"Contact Me",
 				"class":"tile6",
 				"redirect": "/contact",
-				"image":"",
+				"image":"includes/animat-essential/chat/animat-chat-color.gif",
 				"style":3
 			},
 			{
