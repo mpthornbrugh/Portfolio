@@ -1,3 +1,6 @@
 <div class="contactPage">
-	Contact
+	<div style="display:flex;justify-content:center;align-items:center;height:50%;width:100%;" ng-repeat="item in contacts">
+		<img ng-src="{{item.image}}" class="contactImage">
+		{{item.description}}
+	</div>
 </div>
