@@ -207,6 +207,16 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	width: 100%;
 }
 
+.socialImage {
+	width:80%;
+	display:block;
+	margin:auto;
+}
+
+.socialImage:hover {
+	opacity: 0.75;
+}
+
 
 .ng-enter       { z-index: 8888; }
 .ng-leave       { z-index: 9999; }

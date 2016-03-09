@@ -51,7 +51,7 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate', 'ngSanitize'])
 				"redirect": "/social", //May want to adjust this to just have the social buttons on the tile
 				"image":[
 					"images/facebook_icon.png",
-					"images/google_plus_icon.svg",
+					"images/github_icon.svg",
 					"images/linkedin_icon.png"
 				],
 				"style":4,
