@@ -22,7 +22,7 @@ angular.module('portfolio.contact', ['ngRoute', 'ngAnimate'])
 
 		angular.element(document).ready(function () {
 			if (isMobile) {
-				$("#contactImage").css("font-size", "5vw");
+				$("#contactImage").css("font-size", "9vw");
 			}
 		});
 
