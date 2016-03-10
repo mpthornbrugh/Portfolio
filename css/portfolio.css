@@ -89,6 +89,17 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	box-shadow: none;
 }
 
+.tileNoClick {
+	font-family: myFirstFont;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	float:left;
+	width:50%;
+	height:250px;
+	text-transform: uppercase;
+}
+
 .tileImg {
 	height:200px;
 	border-radius: 50%;
@@ -212,6 +223,7 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	box-shadow: 0 0 20px rgba(0,0,0,0.4);
 	overflow: auto;
 	text-align: center;
+	margin-bottom:10px;
 	margin-top:10px;
 }
 

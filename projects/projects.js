@@ -9,7 +9,7 @@ angular.module('portfolio.projects', ['ngRoute', 'ngAnimate'])
 		});
 	}])
 
-	.controller('ProjectsCtrl', ['$scope', '$location', function ($scope, $location) {
+	.controller('ProjectsCtrl', ['$scope', 'Services', function ($scope, Services) {
 		var isMobile = false; //initiate as false
 		// device detection
 		if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
@@ -63,7 +63,7 @@ angular.module('portfolio.projects', ['ngRoute', 'ngAnimate'])
 					.fadeIn(1000)
 					.end()
 					.appendTo('#slideshow');
-			},  3000);
+			},  6000);
 		}
 
 		$scope.startSlideshow = function () {
@@ -78,8 +78,10 @@ angular.module('portfolio.projects', ['ngRoute', 'ngAnimate'])
 
 		angular.element(document).ready(function () {
 			$("#slideshow div:gt(0)").hide();
-
-			startSlideshow();
+			if (!Services.checkBeenToProjects()) {
+				Services.visitProjects();
+				startSlideshow();
+			}
 		});
 	}]);
 

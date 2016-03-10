@@ -9,7 +9,8 @@ angular.module('portfolio', [
 	'portfolio.contact',
 	'portfolio.projects',
 	'portfolio.resume',
-	'portfolio.social'
+	'portfolio.social',
+	'services'
 ])
 	.config(['$routeProvider', function ($routeProvider) {
 		$routeProvider.otherwise({redirectTo: '/main'});

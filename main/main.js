@@ -29,7 +29,7 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate', 'ngSanitize'])
 		$scope.tiles = [
 			{
 				"description":"Logo",
-				"class":"tile1",
+				"class":"tile1 tileNoClick",
 				"redirect": "",
 				"image":"images/logo-color.svg",
 				"style":2,
@@ -37,7 +37,7 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate', 'ngSanitize'])
 			},
 			{
 				"description":"Welcome<br>To the Online Portfolio<br>Of Michael Thornbrugh",
-				"class":"tile4",
+				"class":"tile4 tileNoClick",
 				"redirect": "",
 				"image":"",
 				"style":1,
@@ -45,27 +45,23 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate', 'ngSanitize'])
 			},
 			{
 				"description":"About Me",
-				"class":"tile2",
+				"class":"tile2 shake-slow tile",
 				"redirect": "/about",
 				"image":"includes/animat-essential/image/animat-image-color.gif",
 				"style":3,
 				"cursor":"pointer"
 			},
 			{
-				"description":"Social",
-				"class":"tile3",
-				"redirect": "/social", //May want to adjust this to just have the social buttons on the tile
-				"image":[
-					"images/facebook_icon.png",
-					"images/github_icon.svg",
-					"images/linkedin_icon.png"
-				],
-				"style":4,
+				"description":"Resume",
+				"class":"tile8 shake-slow tile",
+				"redirect": "/resume",
+				"image":"includes/animat-essential/pencil/animat-pencil-color.gif",
+				"style":3,
 				"cursor":"pointer"
 			},
 			{
 				"description":"Projects",
-				"class":"tile5",
+				"class":"tile5 shake-slow tile",
 				"redirect": "/projects",
 				"image":"includes/animat-essential/code/animat-code-color.gif",
 				"style":3,
@@ -73,7 +69,7 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate', 'ngSanitize'])
 			},
 			{
 				"description":"Contact Me",
-				"class":"tile6",
+				"class":"tile6 shake-slow tile",
 				"redirect": "/contact",
 				"image":"includes/animat-essential/chat/animat-chat-color.gif",
 				"style":3,
@@ -81,18 +77,22 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate', 'ngSanitize'])
 			},
 			{
 				"description":"Picture",
-				"class":"tile7",
+				"class":"tile7 tileNoClick",
 				"redirect": "",
 				"image":"images/Michael_LinkedIn_Photo.jpg",
 				"style":2,
 				"cursor":"default"
 			},
 			{
-				"description":"Resume",
-				"class":"tile8",
-				"redirect": "/resume",
-				"image":"includes/animat-essential/pencil/animat-pencil-color.gif",
-				"style":3,
+				"description":"Social",
+				"class":"tile3 shake-slow tile",
+				"redirect": "/social", //May want to adjust this to just have the social buttons on the tile
+				"image":[
+					"images/facebook_icon.png",
+					"images/github_icon.svg",
+					"images/linkedin_icon.png"
+				],
+				"style":4,
 				"cursor":"pointer"
 			}
 		];
