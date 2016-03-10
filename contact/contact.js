@@ -20,11 +20,7 @@ angular.module('portfolio.contact', ['ngRoute', 'ngAnimate'])
 
 		$scope.showMenu = false;
 
-		angular.element(document).ready(function () {
-			if (isMobile) {
-				$("#contactImage").css("font-size", "9vw");
-			}
-		});
+		//TODO: Need to work on making the clicking of the fa icons to call/open email.
 
 		$scope.contacts = [
 			{
