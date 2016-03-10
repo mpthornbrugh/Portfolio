@@ -34,7 +34,12 @@ angular.module('portfolio.contact', ['ngRoute', 'ngAnimate'])
 		];
 
 		$scope.toClipboard = function (text) {
-			window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+			if (isMobile) {
+				window.location.href="tel://"+text;
+			}
+			else {
+				window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+			}
 		};
 
 		var isMobile = false; //initiate as false
