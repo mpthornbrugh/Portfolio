@@ -20,6 +20,10 @@ angular.module('portfolio.contact', ['ngRoute', 'ngAnimate'])
 
 		$scope.showMenu = false;
 
+		if (isMobile) {
+			$("#contactImage").css("font-size", "5vw");
+		}
+
 		$scope.contacts = [
 			{
 				"description":"(720) 903-0521",

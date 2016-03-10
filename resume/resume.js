@@ -20,7 +20,95 @@ angular.module('portfolio.resume', ['ngRoute', 'ngAnimate'])
 
 		$scope.showMenu = false;
 
+		$scope.experience = [
+			{
+				"name":"MobileUp Software by Essenza Software",
+				"website":"http://www.mobileupsoftware.com/",
+				"job_title":"Mobile Application Developer",
+				"from":"May 2015",
+				"to":"November 2015",
+				"location":"11100 Ash St #101, Leawood, KS 66211",
+				"description":"Worked in a small group (~10 people) to create mobile applications for alumni associations and university involvement using AngularJS, HTML and CSS. The apps were created for both IOS and Android.",
+				"skills_used":"JavaScript, SQL, HTML, CSS, AngularJS, JQuery, Git, WebStorm"
+			},
+			{
+				"name":"AllofE Solutions",
+				"website":"http://www.allofe.com/",
+				"job_title":"Software Engineer",
+				"from":"May 2014",
+				"to":"December 2014",
+				"location":"2510 W 6th St, Lawrence, KS 66049",
+				"description":"Worked as a part of a ~20 person to create school logistics software for schools and university. The software was used by the staff of the schools to determine if there are certain areas of your school that are doing better and need praise or if some areas need some more work.",
+				"skills_used":"JavaScript, SQL, HTML, CSS, ExtJS, Git"
+			}
+		];
 
+		$scope.skills = [
+			{
+				"skill":"JavaScript",
+				"length":"3 Years"
+			},
+			{
+				"skill":"C++",
+				"length":"4 Years"
+			},
+			{
+				"skill":"SQL",
+				"length":"3 Years"
+			},
+			{
+				"skill":"Git",
+				"length":"4 Years"
+			},
+			{
+				"skill":"HTML5",
+				"length":"5 Years"
+			},
+			{
+				"skill":"CSS3",
+				"length":"3 Years"
+			},
+			{
+				"skill":"Java",
+				"length":"2 Years"
+			},
+			{
+				"skill":"Scheme",
+				"length":"2 Years"
+			},
+			{
+				"skill":"PHP",
+				"length":"1 Year"
+			},
+			{
+				"skill":"Python",
+				"length":"2 Years"
+			},
+			{
+				"skill":"WebStorm",
+				"length":"2 Years"
+			},
+			{
+				"skill":"AngularJS",
+				"length":"2 Years"
+			},
+			{
+				"skill":"ExtJS",
+				"length":"1 Year"
+			},
+			{
+				"skill":"Customer Service",
+				"length":"6 Years"
+			}
+		];
+
+		$scope.education = [
+
+		];
+
+		$scope.other = [
+
+		];
 	}]);
 
 
