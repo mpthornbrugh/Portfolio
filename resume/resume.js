@@ -17,8 +17,6 @@ angular.module('portfolio.resume', ['ngRoute', 'ngAnimate'])
 			isMobile = true;
 		}
 
-		isMobile = true;
-
 		if (!isMobile) {
 			$scope.pageClass = 'page-resume';
 		}
