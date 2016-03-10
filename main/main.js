@@ -28,10 +28,10 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate', 'ngSanitize'])
 		* */
 		$scope.tiles = [
 			{
-				"description":"Logo",
-				"class":"tile1 tileNoClick",
+				"description":"Picture",
+				"class":"tile7 tileNoClick",
 				"redirect": "",
-				"image":"images/logo-color.svg",
+				"image":"images/Michael_LinkedIn_Photo.jpg",
 				"style":2,
 				"cursor":"default"
 			},
@@ -76,10 +76,10 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate', 'ngSanitize'])
 				"cursor":"pointer"
 			},
 			{
-				"description":"Picture",
-				"class":"tile7 tileNoClick",
+				"description":"Logo",
+				"class":"tile1 tileNoClick",
 				"redirect": "",
-				"image":"images/Michael_LinkedIn_Photo.jpg",
+				"image":"images/logo-color.svg",
 				"style":2,
 				"cursor":"default"
 			},
