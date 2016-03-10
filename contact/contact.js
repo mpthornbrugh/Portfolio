@@ -36,7 +36,7 @@ angular.module('portfolio.contact', ['ngRoute', 'ngAnimate'])
 		$scope.toClipboard = function (text) {
 			if (isMobile) {
 				if (text.indexOf("@") > -1) {
-					window.location.href="mailto:" + text + "?subject='Found your email online!'";
+					window.location.href="mailto:" + text + "?subject=Found your email online!";
 				}
 				else {
 					window.location.href="tel://"+text;
