@@ -123,7 +123,7 @@ html, body { height: 100%; width: 100%; margin: 0; }
 }
 
 .tile2 {
-	background-color: #3A9AD9;
+	background-color: #A3D39C;
 }
 
 .tile3 {
@@ -139,7 +139,7 @@ html, body { height: 100%; width: 100%; margin: 0; }
 }
 
 .tile6 {
-	background-color: #A3D39C;
+	background-color: #3A9AD9;
 }
 
 .tile7 {
@@ -154,7 +154,7 @@ html, body { height: 100%; width: 100%; margin: 0; }
 ============================================================================= */
 
 .aboutPage {
-	background: #3A9AD9;
+	background: #A3D39C;
 	position: absolute;
 	top: 10%;
 	bottom: 0;
@@ -178,7 +178,7 @@ html, body { height: 100%; width: 100%; margin: 0; }
 ============================================================================= */
 
 .contactPage {
-	background: #A3D39C;
+	background: #3A9AD9;
 	position: absolute;
 	top: 10%;
 	bottom: 0;
