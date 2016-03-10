@@ -35,7 +35,12 @@ angular.module('portfolio.contact', ['ngRoute', 'ngAnimate'])
 
 		$scope.toClipboard = function (text) {
 			if (isMobile) {
-				window.location.href="tel://"+text;
+				if (text.indexOf("@") > -1) {
+					window.location.href="mailto://" + text;
+				}
+				else {
+					window.location.href="tel://"+text;
+				}
 			}
 			else {
 				window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
