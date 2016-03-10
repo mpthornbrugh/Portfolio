@@ -1,28 +1,7 @@
+/* OVERALL
+============================================================================= */
+
 html, body { height: 100%; width: 100%; margin: 0; }
-
-.wrapper {
-	border: 30px solid white;
-	height:100%;
-	width:100%;
-	display:table;
-	position: relative;
-}
-
-.tile {
-	font-family: myFirstFont;
-	display:flex;
-	justify-content:center;
-	align-items:center;
-	box-shadow:inset 0 0 0 99999px rgba(255,255,255,0.2);
-	float:left;
-	width:50%;
-	height:250px;
-	text-transform: uppercase;
-}
-
-.tile:hover {
-	box-shadow: none;
-}
 
 .topBar {
 	display: flex;
@@ -79,6 +58,46 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	background: rgba(128, 128, 128, 0.16);
 }
 
+.page {
+
+}
+
+/* MAIN
+============================================================================= */
+
+.wrapper {
+	border: 30px solid white;
+	height:100%;
+	width:100%;
+	display:table;
+	position: relative;
+}
+
+.tile {
+	font-family: myFirstFont;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	box-shadow:inset 0 0 0 99999px rgba(255,255,255,0.2);
+	float:left;
+	width:50%;
+	height:250px;
+	text-transform: uppercase;
+}
+
+.tile:hover {
+	box-shadow: none;
+}
+
+.tileImg {
+	height:200px;
+	border-radius: 50%;
+}
+
+.smallTileImg {
+	height:75px;
+}
+
 .bottomBar {
 	bottom: -30px;
 	color: #413231;
@@ -120,39 +139,8 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	background-color: #3A9AD9;
 }
 
-.menuContent {
-	float:right;
-	padding-right: 10px;
-}
-
-.barMenuIconImg {
-	width:32px;
-	height:32px;
-	background:rgb(212, 209, 209);
-	border-radius:5px;
-	box-shadow:inset 0 0 0 99999px rgba(255,255,255,0.4);
-}
-
-.barMenuIconImg:hover {
-	box-shadow:none;
-}
-
-.tileImg {
-	height:200px;
-	border-radius: 50%;
-}
-
-.smallTileImg {
-	height:75px;
-}
-
-.tileHalfImg {
-	height: 100px;
-}
-
-.page {
-
-}
+/* ABOUT ME
+============================================================================= */
 
 .aboutPage {
 	background: #3A9AD9;
@@ -175,6 +163,9 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	color: #555555;
 }
 
+/* CONTACT
+============================================================================= */
+
 .contactPage {
 	background: #A3D39C;
 	position: absolute;
@@ -183,13 +174,13 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	width: 100%;
 }
 
-.contact-fa:hover {
-	color: #211572;
-}
-
 .contactPage a {
 	color: inherit;
 	cursor: pointer;
+}
+
+.contact-fa:hover {
+	color: #211572;
 }
 
 .contactImage {
@@ -200,6 +191,9 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	opacity: .75;
 }
 
+/* PROJECTS
+============================================================================= */
+
 .projectsPage {
 	background: #EB7260;
 	position: absolute;
@@ -208,13 +202,153 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	width: 100%;
 }
 
+/* RESUME
+============================================================================= */
+
 .resumePage {
 	background: #3A9AD9;
 	position: absolute;
 	top: 10%;
 	bottom: 0;
 	width: 100%;
+	color: #b4ffde;
 }
+
+.resumeGoogleMap {
+	color:black;
+	position: fixed;
+	top: -10%;
+	left: 0;
+	width: 100%;
+	height: 110%;
+	z-index:99;
+	background: white;
+	opacity: .9;
+}
+
+.resumeGoogleMapX {
+	position: fixed;
+	top: 10%;
+	left: 0;
+	width: 3em;
+	height: 3em;
+	z-index:100;
+	border-radius: 50%;
+}
+
+.resumeGoogleMapX:hover {
+	background: rgba(200, 200, 200, 0.4);
+}
+
+.experienceDiv {
+	width: -moz-calc(100% - .4em);
+	width: -webkit-calc(100% - .4em);
+	width: calc(100% - .4em);
+	margin:.5%;
+	background: #3080b5;
+	border-radius: 6px;
+	text-align: center;
+	display: table;
+}
+
+.experienceInnerDiv {
+	width: 49%;
+	float: left;
+	display: block;
+	margin: .5%;
+	background: white;
+	border-radius: 6px;
+	color:black;
+}
+
+.experienceInnerDiv a {
+	color: inherit;
+}
+
+.experienceInnerDiv a:hover {
+	color: inherit;
+}
+
+.locationSpan:hover {
+	color:blue;
+	cursor: pointer;
+}
+
+.skillsDiv {
+	width: -moz-calc(100% - .4em);
+	width: -webkit-calc(100% - .4em);
+	width: calc(100% - .4em);
+	margin:.2em;
+	background: #3080b5;
+	border-radius: 6px;
+	text-align: center;
+	display: table;
+}
+
+.skillsDivInner {
+	width: 19.2%;
+	float:left;
+	display: block;
+	margin:.4%;
+	background: white;
+	border-radius:6px;
+	color:black;
+}
+
+.educationClassesDiv {
+	width: -moz-calc(100% - .4em);
+	width: -webkit-calc(100% - .4em);
+	width: calc(100% - .4em);
+	margin:.2em;
+	background: #3080b5;
+	border-radius: 6px;
+	text-align: center;
+	display: table;
+}
+
+.educationInnerDiv {
+	width: 99%;
+	float: left;
+	margin: .5%;
+	background: white;
+	border-radius: 6px;
+	color:black;
+	display: block;
+}
+
+.classInner {
+	width: 49%;
+	float: left;
+	margin: .5%;
+	background: #c4c4c4;
+	border-radius: 6px;
+	display: block;
+	font-size: 18px;
+}
+
+.experienceDivMobile {
+	margin:.2em;
+	background: #3080b5;
+	border-radius: 6px;
+	text-align: center;
+}
+
+.skillsDivMobile {
+	margin:.2em;
+	background: #3080b5;
+	border-radius: 6px;
+	text-align: center;
+}
+
+.educationClassesDivMobile {
+	margin:.2em;
+	background: #3080b5;
+	border-radius: 6px;
+	text-align: center;
+}
+
+/* SOCIAL
+============================================================================= */
 
 .socialPage {
 	background: #29ABA4;
@@ -234,6 +368,8 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	opacity: 0.75;
 }
 
+/* ANIMATIONS
+============================================================================= */
 
 .ng-enter       { z-index: 8888; }
 .ng-leave       { z-index: 9999; }
@@ -263,11 +399,6 @@ html, body { height: 100%; width: 100%; margin: 0; }
 /* social ---------------------- */
 .page-social.ng-leave      { transform-origin: 50% 50%; animation: rotateOutNewspaper .5s both ease-in; }
 .page-social.ng-enter      { animation:slideInRight 0.5s both ease-in; }
-
-
-
-/* ANIMATIONS
-============================================================================= */
 
 /* leaving animations ----------------------------------------- */
 /* rotate and fall */
