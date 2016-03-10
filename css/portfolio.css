@@ -359,7 +359,10 @@ html, body { height: 100%; width: 100%; margin: 0; }
 .resumeGoogleMapXMobile {
 	position: fixed;
 	top: 10%;
-	left: 50%;
+	left: -moz-calc(50% - 1.5em);
+	left: -webkit-calc(50% - 1.5em);
+	left: calc(50% - 1.5em);
+	/*left: 50%;*/
 	width: 3em;
 	height: 3em;
 	z-index:100;
