@@ -17,11 +17,11 @@ angular.module('portfolio.resume', ['ngRoute', 'ngAnimate'])
 			isMobile = true;
 		}
 
+		isMobile = true;
+
 		if (!isMobile) {
 			$scope.pageClass = 'page-resume';
 		}
-
-		//TODO: Need to do some sort of check for the size of the screen when it's long and skinny the text goes outside of the divs.
 
 		$scope.isMobile = isMobile;
 
