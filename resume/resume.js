@@ -103,7 +103,52 @@ angular.module('portfolio.resume', ['ngRoute', 'ngAnimate'])
 		];
 
 		$scope.education = [
+			{
+				"school_name":"The University of Kansas",
+				"from":"August 2012",
+				"to":"May 2016",
+				"degree_type":"Bacelor's Degree",
+				"degree_name":"Computer Science",
+				"description":"As a student at the University of Kansas I have learned the fundamentals of what it means to be a computer scientist. I have learned necessary skills that are needed for the industry once I graduate."
+			}
+		];
 
+		$scope.classes = [
+			{
+				"class_num":"EECS 649",
+				"class_name":"Introduction to Artificial Intelligence",
+				"description":""
+			},
+			{
+				"class_num":"EECS 767",
+				"class_name":"Introduction to Information Retrieval",
+				"description":""
+			},
+			{
+				"class_num":"EECS 665",
+				"class_name":"Compiler Construction",
+				"description":""
+			},
+			{
+				"class_num":"EECS 662",
+				"class_name":"Programming Languages",
+				"description":""
+			},
+			{
+				"class_num":"EECS 660",
+				"class_name":"Fundamentals of Computer Algorithms",
+				"description":""
+			},
+			{
+				"class_num":"EECS 565",
+				"class_name":"Introduction to Information and Computer Security",
+				"description":""
+			},
+			{
+				"class_num":"EECS 560",
+				"class_name":"Data Structures",
+				"description":""
+			}
 		];
 
 		$scope.other = [
