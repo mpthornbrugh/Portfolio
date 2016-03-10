@@ -44,18 +44,18 @@ angular.module('portfolio.main', ['ngRoute', 'ngAnimate', 'ngSanitize'])
 				"cursor":"default"
 			},
 			{
-				"description":"About Me",
-				"class":"tile2 shake-slow tile",
-				"redirect": "/about",
-				"image":"includes/animat-essential/image/animat-image-color.gif",
-				"style":3,
-				"cursor":"pointer"
-			},
-			{
 				"description":"Resume",
 				"class":"tile8 shake-slow tile",
 				"redirect": "/resume",
 				"image":"includes/animat-essential/pencil/animat-pencil-color.gif",
+				"style":3,
+				"cursor":"pointer"
+			},
+			{
+				"description":"About Me",
+				"class":"tile2 shake-slow tile",
+				"redirect": "/about",
+				"image":"includes/animat-essential/image/animat-image-color.gif",
 				"style":3,
 				"cursor":"pointer"
 			},
