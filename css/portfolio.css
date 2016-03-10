@@ -200,6 +200,27 @@ html, body { height: 100%; width: 100%; margin: 0; }
 	top: 10%;
 	bottom: 0;
 	width: 100%;
+	text-align: center;
+}
+
+#slideshow {
+	margin: 50px auto;
+	position: relative;
+	width: 90%;
+	height: 80%;
+	padding: 10px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.4);
+	overflow: auto;
+	text-align: center;
+	margin-top:10px;
+}
+
+#slideshow div {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	right: 10px;
+	bottom: 10px;
 }
 
 /* RESUME

@@ -19,8 +19,68 @@ angular.module('portfolio.projects', ['ngRoute', 'ngAnimate'])
 		$scope.pageClass = 'page-projects';
 
 		$scope.showMenu = false;
+		$scope.play = true;
+		var timer;
 
+		$scope.projects = [
+			{
+				"name":"AllofE - eCLAS Solution",
+				"image":"images/eclas.png",
+				"description":"Worked on both the front and back end of a product aimed to log detailed information about patients at internal clinical sites.",
+				"website":"http://www.emedley.com/eclas/"
+			},
+			{
+				"name":"AllofE - eCurriculum Solution",
+				"image":"images/ecurriculum.png",
+				"description":"A product to record the what, when and how of classroom instruction. Worked on both the front and back end of this project as well as was in charge of some styling.",
+				"website":"http://www.emedley.com/ecurriculum/"
+			},
+			{
+				"name":"MobileUp - Traditions Solution",
+				"image":"images/traditions.png",
+				"description":"An individualized product to specific school systems. This app engages the students to do things around the campus. I worked on both the front end and back end of this product. I was also in charge of branding the app to the specific client needs.",
+				"website":"http://www.mobileupsoftware.com/solutions"
+			},
+			{
+				"name":"MobileUp - Membership Solution",
+				"image":"images/membership.png",
+				"description":"An individualized product to specific alumni associations or organizations. This app allows for the alumni association to manage their members and to create a \"One Stop Shop\" for anything associated with the organization. I worked on all aspects of this product, but specialized in branding the product to the client.",
+				"website":"http://www.mobileupsoftware.com/solutions"
+			},
+			{
+				"name":"Personal - HistViewer (Historical Information Viewer)",
+				"image":"images/histviewer.png",
+				"description":"A project created for my senior year design project. The idea was pitched to us by Raffaele Cipriano to originally be a way to view musical information in a time-based format. My group and I have taken this idea to be able to accept any kind of information and essentially create a \"Web of Historical Information\".",
+				"website":"http://www.mobileupsoftware.com/solutions"
+			}
+		];
 
+		function startSlideshow() {
+			timer = setInterval(function() {
+				$('#slideshow div:first')
+					.fadeOut(1000)
+					.next()
+					.fadeIn(1000)
+					.end()
+					.appendTo('#slideshow');
+			},  3000);
+		}
+
+		$scope.startSlideshow = function () {
+			startSlideshow();
+			$scope.play = true;
+		};
+
+		$scope.stopSlideshow = function () {
+			clearInterval(timer);
+			$scope.play = false;
+		};
+
+		angular.element(document).ready(function () {
+			$("#slideshow div:gt(0)").hide();
+
+			startSlideshow();
+		});
 	}]);
 
 
