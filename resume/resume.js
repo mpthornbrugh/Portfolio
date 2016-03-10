@@ -99,6 +99,10 @@ angular.module('portfolio.resume', ['ngRoute', 'ngAnimate'])
 			{
 				"skill":"Customer Service",
 				"length":"6 Years"
+			},
+			{
+				"skill":"Web APIs",
+				"length":"2.5 Years"
 			}
 		];
 
@@ -117,42 +121,47 @@ angular.module('portfolio.resume', ['ngRoute', 'ngAnimate'])
 			{
 				"class_num":"EECS 649",
 				"class_name":"Introduction to Artificial Intelligence",
-				"description":""
+				"description":"Learned the basics of machine learning as well as how to create an \"intelligent\" program."
 			},
 			{
 				"class_num":"EECS 767",
 				"class_name":"Introduction to Information Retrieval",
-				"description":""
+				"description":"Learned how search engines in the world operate as well as how to create one myself."
 			},
 			{
 				"class_num":"EECS 665",
 				"class_name":"Compiler Construction",
-				"description":""
+				"description":"Learned the basics of a compiler and how to create one."
 			},
 			{
 				"class_num":"EECS 662",
 				"class_name":"Programming Languages",
-				"description":""
+				"description":"Learned how programming languages are created. Learned various low level aspects of programming languages."
 			},
 			{
 				"class_num":"EECS 660",
 				"class_name":"Fundamentals of Computer Algorithms",
-				"description":""
+				"description":"Learned how to calculate the time complexity of an algorithm as well as learning about higher level algorithms."
 			},
 			{
 				"class_num":"EECS 565",
 				"class_name":"Introduction to Information and Computer Security",
-				"description":""
+				"description":"Learned how information is kept safe from attacks as well as how to attain that security with our own programs."
 			},
 			{
 				"class_num":"EECS 560",
 				"class_name":"Data Structures",
-				"description":""
+				"description":"Learned about a barrage of different data structures that are used in programs."
 			}
 		];
 
 		$scope.other = [
-
+			{
+				"thing":"Martial Arts Instructor",
+				"from":"October 2000",
+				"to":"May 2012",
+				"description":"After attaining a black belt I began working with Omega Martial Arts to instruct classes. This taught me self-discipline, the ability to work through obstacles and the ability to instruct others while also learning myself."
+			}
 		];
 	}]);
 
