@@ -40,6 +40,11 @@ angular.module('portfolio.social', ['ngRoute', 'ngAnimate'])
 				"title":"Github",
 				"image":"images/github_icon.svg",
 				"link":"https://github.com/mpthornbrugh"
+			},
+			{
+				"title":"UpWork",
+				"image":"images/upwork.png",
+				"link":"http://www.upwork.com/o/profiles/users/_~010502412468249155/"
 			}
 		];
 	}]);
