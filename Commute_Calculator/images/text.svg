@@ -1,0 +1,25 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500"
+        xml:space="preserve" class="text">
+        <path id="arc1" fill="none" stroke="black" stroke-width="30" d="M 100 50 A 50 50 0 0 0 50 100"></path>
+        <path id="arc2" fill="none" stroke="black" stroke-width="30" d="M 450 100 A 50 50 0 0 0 400 50"></path>
+        <path id="arc3" fill="none" stroke="black" stroke-width="30" d="M 400 450 A 50 50 0 0 0 450 400"></path>
+        <path id="arc4" fill="none" stroke="black" stroke-width="30" d="M 50 400 A 50 50 0 0 0 100 450"></path>
+
+				<line x1="50" y1="100" x2="50" y2="400" style="stroke:black;stroke-width:30"></line>
+			  <line x1="100" y1="50" x2="400" y2="50" style="stroke:black;stroke-width:30"></line>
+			  <line x1="100" y1="450" x2="400" y2="450" style="stroke:black;stroke-width:30"></line>
+			  <line x1="450" y1="100" x2="450" y2="400" style="stroke:black;stroke-width:30"></line>
+
+			  <line x1="110" y1="150" x2="390" y2="150" style="stroke:black;stroke-width:20"></line>
+			  <circle cx="110" cy="150" r="10" fill="black"/>
+			  <circle cx="390" cy="150" r="10" fill="black"/>
+
+			  <line x1="110" y1="250" x2="390" y2="250" style="stroke:black;stroke-width:20"></line>
+			  <circle cx="110" cy="250" r="10" fill="black"/>
+			  <circle cx="390" cy="250" r="10" fill="black"/>
+
+			  <line x1="110" y1="350" x2="390" y2="350" style="stroke:black;stroke-width:20"></line>
+			  <circle cx="110" cy="350" r="10" fill="black"/>
+			  <circle cx="390" cy="350" r="10" fill="black"/>
+</svg>

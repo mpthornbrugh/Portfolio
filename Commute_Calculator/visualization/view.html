@@ -1,0 +1,171 @@
+<div style="font-size: 16px;" id="grad">
+	<div class="radios">
+		<div class="backDiv" style="margin-right: 20px;" ng-click="goBack()">
+			Back
+		</div>
+
+		<div id="drivingRadio" class="divRadio" ng-click="changeSelectedType('d')">
+			<img src="images/driving.svg" style="width:50px;height:50px;">
+		</div>
+		<div id="bicyclingRadio" class="divRadio" ng-click="changeSelectedType('b')">
+			<img src="images/bicycling.svg" style="width:50px;height:50px;">
+		</div>
+		<div id="transitRadio" class="divRadio" ng-click="changeSelectedType('t')">
+			<img src="images/transit.svg" style="width:50px;height:50px;">
+		</div>
+
+		<div id="textView" class="divViews" ng-click="changeView('text')">
+			<img src="images/text.svg" style="width: 50px;height:50px;">
+		</div>
+		<div id="radialView" class="divViews" ng-click="changeView('radial')">
+			<img src="images/radial.svg" style="width: 50px;height:50px;">
+		</div>
+		<div id="tableView" class="divViews" ng-click="changeView('table')" style="text-align:center;color:black;">
+			<i class="fa fa-user" style="font-size:50px;"></i>
+		</div>
+		<div id="mapView" class="divViews" ng-click="changeView('map')" style="text-align:center;color:black;">
+			<i class="fa fa-map-pin" style="font-size:50px;"></i>
+		</div>
+	</div>
+
+	<div ng-show="view == 'text'" style="font-size: 1.5em;margin-top:71px;" ng-repeat="average in averages">
+		<h1>
+			{{selectedType}} Averages from {{average.workAddress}}
+		</h1>
+		<div ng-show="selectedType == 'Driving'">
+			w/o Remotes: {{average.NonRemote.DRIVING.timeString}}
+		</div>
+		<div ng-show="selectedType == 'Bicycling'">
+			w/o Remotes: {{average.NonRemote.BICYCLING.timeString}}
+		</div>
+		<div ng-show="selectedType == 'Transit'">
+			w/o Remotes: {{average.NonRemote.TRANSIT.timeString}}
+		</div>
+		<div ng-show="selectedType == 'Driving'">
+			w/ Remotes: {{average.WithRemote.DRIVING.timeString}}
+		</div>
+		<div ng-show="selectedType == 'Bicycling'">
+			w/ Remotes: {{average.WithRemote.BICYCLING.timeString}}
+		</div>
+		<div ng-show="selectedType == 'Transit'">
+			w/ Remotes: {{average.WithRemote.TRANSIT.timeString}}
+		</div>
+	</div>
+
+	<div ng-show="view == 'radial'" class="z-depth-3" style="margin:0 auto; width:100%; height:600px; padding-top:25px;margin-top:71px;" ng-repeat="average in averages">
+		<h1 style="text-align: center;">
+			{{selectedType}} Averages from {{average.workAddress}}
+		</h1>
+		<div ng-show="selectedType == 'Driving'" id="div1Average{{$index}}" class="radial_container">No Remotes</div>
+		<div ng-show="selectedType == 'Bicycling'" id="div2Average{{$index}}" class="radial_container">No Remotes</div>
+		<div ng-show="selectedType == 'Transit'" id="div3Average{{$index}}" class="radial_container">No Remotes</div>
+		<div ng-show="selectedType == 'Driving'" id="div4Average{{$index}}" class="radial_container">With Remotes</div>
+		<div ng-show="selectedType == 'Bicycling'" id="div5Average{{$index}}" class="radial_container">With Remotes</div>
+		<div ng-show="selectedType == 'Transit'" id="div6Average{{$index}}" class="radial_container">With Remotes</div>
+	</div>
+
+	<div ng-show="view == 'table'" style="margin-top:71px;">
+		<form class="form-inline">
+			<div class="form-group">
+				<label for="exampleInputName2">Name</label>
+				<input ng-model="query" type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+			</div>
+			<div class="checkbox">
+				<label>
+					<input ng-model="remoteCheck" type="checkbox"> Hide Remote
+				</label>
+			</div>
+			<div class="bestCellIndicator">
+				Indicates Fastest Address
+			</div>
+			<div class="worstCellIndicator">
+				Indicates Slowest Address
+			</div>
+		</form>
+		<div class="tableCard">
+			<div class="nameTableSection">
+				Name
+			</div>
+			<div class="remoteTableSection">
+				Remote?
+			</div>
+			<div class="informationTableSection addedAdjustedWidth" ng-repeat="average in averages">
+				{{average.workAddress}}
+			</div>
+		</div>
+		<div class="tableCard">
+			<div class="nameTableSection">
+				Total Percentages
+			</div>
+			<div class="remoteTableSection">
+				N/A
+			</div>
+			<div class="informationTableSection addedAdjustedWidth" ng-repeat="average in averages">
+				<div class="headerBox">
+					Best %
+				</div>
+				<div class="headerBox">
+					Min
+				</div>
+				<div class="headerBox">
+					Max
+				</div>
+				<div class="headerBox" style="border:none;">
+					Average
+				</div>
+			</div>
+		</div>
+		<div class="tableCard">
+			<div class="nameTableSection">
+				--
+			</div>
+			<div class="remoteTableSection">
+				--
+			</div>
+			<div class="informationTableSection addedAdjustedWidth" ng-repeat="average in averages">
+				<div class="headerBox">
+					<div ng-show="selectedType == 'Driving'">{{average.bestPercents.DRIVING}}</div>
+					<div ng-show="selectedType == 'Bicycling'">{{average.bestPercents.BICYCLING}}</div>
+					<div ng-show="selectedType == 'Transit'">{{average.bestPercents.TRANSIT}}</div>
+				</div>
+				<div class="headerBox">
+					<div ng-show="selectedType == 'Driving'">{{average.mins.DRIVING}}</div>
+					<div ng-show="selectedType == 'Bicycling'">{{average.mins.BICYCLING}}</div>
+					<div ng-show="selectedType == 'Transit'">{{average.mins.TRANSIT}}</div>
+				</div>
+				<div class="headerBox">
+					<div ng-show="selectedType == 'Driving'">{{average.maxs.DRIVING}}</div>
+					<div ng-show="selectedType == 'Bicycling'">{{average.maxs.BICYCLING}}</div>
+					<div ng-show="selectedType == 'Transit'">{{average.maxs.TRANSIT}}</div>
+				</div>
+				<div class="headerBox" style="border:none;">
+					<div ng-show="selectedType == 'Driving'">{{average.overallAverages.DRIVING}}</div>
+					<div ng-show="selectedType == 'Bicycling'">{{average.overallAverages.BICYCLING}}</div>
+					<div ng-show="selectedType == 'Transit'">{{average.overallAverages.TRANSIT}}</div>
+				</div>
+			</div>
+		</div>
+		<div ng-repeat="employee in employees | filter:query | filter:employeeFilter" class="tableCard">
+			<div class="nameTableSection">
+				{{employee.name}}
+			</div>
+			<div class="remoteTableSection">
+				<span ng-if="employee.isRemote">Yes</span>
+				<span ng-if="!employee.isRemote">No</span>
+			</div>
+			<div class="informationTableSection addedAdjustedWidth" ng-repeat="time in employee.times">
+				<span style="display:block" ng-show="selectedType == 'Driving'" ng-class="{'worstCell':time.DRIVING.worst, 'bestCell':time.DRIVING.best}">{{time.DRIVING.time}}</span>
+				<span style="display:block" ng-show="selectedType == 'Bicycling'" ng-class="{'worstCell':time.BICYCLING.worst, 'bestCell':time.BICYCLING.best}">{{time.BICYCLING.time}}</span>
+				<span style="display:block" ng-show="selectedType == 'Transit'" ng-class="{'worstCell':time.TRANSIT.worst, 'bestCell':time.TRANSIT.best}">{{time.TRANSIT.time}}</span>
+			</div>
+		</div>
+	</div>
+
+	<div ng-show="view == 'map'" class="googleMap">
+		<div id="map" class="googleMapInner"></div>
+	</div>
+
+	<div style="text-align:right;margin-right:20px;">
+		<img src="images/powered_by_google_on_non_white.png">
+	</div>
+</div>
