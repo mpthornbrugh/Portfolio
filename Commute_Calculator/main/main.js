@@ -628,6 +628,17 @@ angular.module('commuteCalculator.main', ['ngRoute'])
 		function add25TravelTimes(objects, isRemoteArr, travelMethod, names, workAddressNumArr, next) {
 			for (var i in objects) {
 				var object = objects[i].elements[0];
+				if (object.status == "ZERO_RESULTS") {
+					object.distance = {
+						text:"no_results",
+						value:100000
+					};
+
+					object.duration = {
+						text:"no_results",
+						value:86400
+					};
+				}
 				object.isRemote = isRemoteArr[i];
 				object.name = names[i];
 				object.workAddress = $scope.workAddresses[workAddressNumArr[i]].address;
