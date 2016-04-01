@@ -20,7 +20,7 @@ angular.module('commuteCalculator.main', ['ngRoute'])
 	})
 	.controller('MainCtrl', ['$scope', 'CommuteServices', '$location', function ($scope, CommuteServices, $location) {
 		//Initializations
-		var file, isCsv, curId = 1;
+		var file, isCsv, curId = 2;
 		var averages = [];
 		var addressArray = [];
 		var totalTravels = [];
@@ -44,6 +44,56 @@ angular.module('commuteCalculator.main', ['ngRoute'])
 		var infoWindow;
 		var service;
 		var firstPathComplete;
+		var geoRetryCount = 0;
+		var directionRetryCount = 0;
+		var currentJquerySelectorId;
+		var mapOverlay = $(".mapSelectorOverlay");
+
+		$scope.showMap = false;
+		mapOverlay.hide();
+
+		$scope.openMap = function (address) {
+			$scope.showMap = true;
+			mapOverlay.fadeIn();
+			$('#us2-address').val(address.address);
+			currentJquerySelectorId = address.id;
+			if (address.address && address.address != "") {
+				$scope.geoCoder = new google.maps.Geocoder();
+				$scope.geoCoder.geocode({'address': address.address}, function (results, status) {
+					if (status == google.maps.GeocoderStatus.OK) {
+						$('#us2').locationpicker({
+							location: {latitude: results[0].geometry.location.lat(), longitude: results[0].geometry.location.lng()},
+							radius: 0,
+							inputBinding: {
+								locationNameInput: $('#us2-address')
+							},
+							enableAutocomplete: true
+						});
+					}
+					else {
+						alert("Geocode was not successful for the following reason: " + status);
+					}
+				});
+			}
+			else {
+				$('#us2').locationpicker({
+					location: {latitude: 40.745280, longitude: -73.993950},
+					radius: 0,
+					inputBinding: {
+						latitudeInput: $('#us2-lat'),
+						longitudeInput: $('#us2-lon'),
+						locationNameInput: $('#us2-address')
+					},
+					enableAutocomplete: true
+				});
+			}
+		};
+
+		$scope.doneWithJquerySelector = function () {
+			$scope.workAddresses[currentJquerySelectorId - 1].address = $("#us2-address").val();
+			$scope.showMap = false;
+			mapOverlay.fadeOut();
+		};
 
 		$scope.showForm = true;
 		hideLoading();
@@ -89,6 +139,8 @@ angular.module('commuteCalculator.main', ['ngRoute'])
 
 		//This function is used to check for good input
 		function readFile() {
+			directionRetryCount = 0;
+			geoRetryCount = 0;
 			timer = new Date().getTime();
 			var hasErrorAddress = false;
 			//Apply classes for good/bad input
@@ -229,7 +281,8 @@ angular.module('commuteCalculator.main', ['ngRoute'])
 					codeAddresses(mappedArr);
 				} else {
 					if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
-						geocodeDelay++;
+						geocodeDelay += 5;
+						geoRetryCount++;
 						codeAddresses(mappedArr);
 					}
 					else {
@@ -357,7 +410,7 @@ angular.module('commuteCalculator.main', ['ngRoute'])
 				else {
 					//Sending requests too fast
 					if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
-						heatMapDelay++;
+						heatMapDelay += 5;
 						//Retry the current request
 						retryCount++;
 						directionsIndex -= numSent;
@@ -378,7 +431,6 @@ angular.module('commuteCalculator.main', ['ngRoute'])
 				calculatedDirections.push(rows[i].elements[0].duration);
 			}
 			var end = new Date().getTime();
-			console.log(calculatedDirections.length + " | " + directions.length + " | " + heatMapDelay + " | " + retryCount + " | " + (end - heatTime));
 			heatTime = end;
 			next();
 		}
@@ -601,7 +653,8 @@ angular.module('commuteCalculator.main', ['ngRoute'])
 				else {
 					//Sending requests too fast
 					if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
-						delay++;
+						delay += 2;
+						directionRetryCount++;
 						//Retry the current request
 						currentIndex -= numToCalc;
 						next();
@@ -630,12 +683,12 @@ angular.module('commuteCalculator.main', ['ngRoute'])
 				var object = objects[i].elements[0];
 				if (object.status == "ZERO_RESULTS") {
 					object.distance = {
-						text:"no_results",
+						text:"No Path",
 						value:100000
 					};
 
 					object.duration = {
-						text:"no_results",
+						text:"No Path",
 						value:86400
 					};
 				}
@@ -652,6 +705,9 @@ angular.module('commuteCalculator.main', ['ngRoute'])
 			for (var key in $scope.workAddresses) {
 				if ($scope.workAddresses.hasOwnProperty(key)) {
 					var count = 0;
+					var drivingNoResultCount = 0;
+					var bicyclingNoResultCount = 0;
+					var transitNoResultCount = 0;
 					var countNoRemote = 0;
 					var drivingSum = 0;
 					var drivingSumNoRemote = 0;
@@ -662,6 +718,10 @@ angular.module('commuteCalculator.main', ['ngRoute'])
 
 					for (var i in totalTravels[key]["DRIVING"]) {
 						count++;
+						if (totalTravels[key]["DRIVING"][i].status == "ZERO_RESULTS") {
+							drivingNoResultCount++;
+							continue;
+						}
 						if (!totalTravels[key]["DRIVING"][i].isRemote) {
 							countNoRemote++;
 							drivingSumNoRemote += totalTravels[key]["DRIVING"][i].duration.value;
@@ -669,30 +729,38 @@ angular.module('commuteCalculator.main', ['ngRoute'])
 						drivingSum += totalTravels[key]["DRIVING"][i].duration.value;
 					}
 					for (var i in totalTravels[key]["BICYCLING"]) {
+						if (totalTravels[key]["BICYCLING"][i].status == "ZERO_RESULTS") {
+							bicyclingNoResultCount++;
+							continue;
+						}
 						if (!totalTravels[key]["BICYCLING"][i].isRemote) {
 							bicyclingSumNoRemote += totalTravels[key]["BICYCLING"][i].duration.value;
 						}
 						bicyclingSum += totalTravels[key]["BICYCLING"][i].duration.value;
 					}
 					for (var i in totalTravels[key]["TRANSIT"]) {
+						if (totalTravels[key]["TRANSIT"][i].status == "ZERO_RESULTS") {
+							transitNoResultCount++;
+							continue;
+						}
 						if (!totalTravels[key]["TRANSIT"][i].isRemote) {
 							transitSumNoRemote += totalTravels[key]["TRANSIT"][i].duration.value;
 						}
 						transitSum += totalTravels[key]["TRANSIT"][i].duration.value;
 					}
 
-					var drivingAvgValue = Math.round(((drivingSum / count) + 0.00001) * 100) / 100;
+					var drivingAvgValue = Math.round(((drivingSum / (count - drivingNoResultCount)) + 0.00001) * 100) / 100;
 					var drivingAvgTime = Math.round(((drivingAvgValue / 60) + 0.00001) * 100) / 100; //Minutes
-					var bicyclingAvgValue = Math.round(((bicyclingSum / count) + 0.00001) * 100) / 100;
+					var bicyclingAvgValue = Math.round(((bicyclingSum / (count - bicyclingNoResultCount)) + 0.00001) * 100) / 100;
 					var bicyclingAvgTime = Math.round(((bicyclingAvgValue / 60) + 0.00001) * 100) / 100; //Minutes
-					var transitAvgValue = Math.round(((transitSum / count) + 0.00001) * 100) / 100;
+					var transitAvgValue = Math.round(((transitSum / (count - transitNoResultCount)) + 0.00001) * 100) / 100;
 					var transitAvgTime = Math.round(((transitAvgValue / 60) + 0.00001) * 100) / 100; //Minutes
 
-					var drivingAvgValueNoRemote = Math.round(((drivingSumNoRemote / countNoRemote) + 0.00001) * 100) / 100;
+					var drivingAvgValueNoRemote = Math.round(((drivingSumNoRemote / (countNoRemote - drivingNoResultCount)) + 0.00001) * 100) / 100;
 					var drivingAvgTimeNoRemote = Math.round(((drivingAvgValueNoRemote / 60) + 0.00001) * 100) / 100; //Minutes
-					var bicyclingAvgValueNoRemote = Math.round(((bicyclingSumNoRemote / countNoRemote) + 0.00001) * 100) / 100;
+					var bicyclingAvgValueNoRemote = Math.round(((bicyclingSumNoRemote / (countNoRemote - bicyclingNoResultCount)) + 0.00001) * 100) / 100;
 					var bicyclingAvgTimeNoRemote = Math.round(((bicyclingAvgValueNoRemote / 60) + 0.00001) * 100) / 100; //Minutes
-					var transitAvgValueNoRemote = Math.round(((transitSumNoRemote / countNoRemote) + 0.00001) * 100) / 100;
+					var transitAvgValueNoRemote = Math.round(((transitSumNoRemote / (countNoRemote - transitNoResultCount)) + 0.00001) * 100) / 100;
 					var transitAvgTimeNoRemote = Math.round(((transitAvgValueNoRemote / 60) + 0.00001) * 100) / 100; //Minutes
 
 					averages[key] = {
@@ -787,7 +855,6 @@ angular.module('commuteCalculator.main', ['ngRoute'])
 
 			var end = new Date().getTime();
 			var time = end - timer;
-			console.log(time);
 
 			hideLoading();
 			$location.path('/vis');

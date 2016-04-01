@@ -43,6 +43,9 @@ angular.module('commuteCalculator.vis', ['ngRoute'])
 
 		var map;
 
+		var markersArray = [];
+		var workAddressMarkers = [];
+
 		$scope.averages = CommuteServices.getAverages();
 		$scope.workAddressNum = $scope.averages.length;
 
@@ -228,11 +231,11 @@ angular.module('commuteCalculator.vis', ['ngRoute'])
 				case "map":
 					$scope.view = 'map';
 					mapView.css("background", "lightgray");
+					updateGoogleMap();
 					break;
 			}
 			changeRadialSize();
 			changeBackgroundSize();
-			updateGoogleMap();
 		};
 
 		//Used to make sure the center of the map is the center of all the points (Currently doesn't seem to do it's job)
@@ -240,6 +243,7 @@ angular.module('commuteCalculator.vis', ['ngRoute'])
 			setTimeout(function () {
 				map.setCenter(centralLoc);
 			}, 100);
+			createMapMarkers();
 		}
 
 		//Function used to change between the different driving modes
@@ -273,6 +277,9 @@ angular.module('commuteCalculator.vis', ['ngRoute'])
 			//Call functions to run animations
 			changeRadialSize();
 			changeBackgroundSize();
+			if (map && $scope.view == 'map') {
+				createMapMarkers();
+			}
 		};
 
 		//######################Callback functions for the radial circles#############
@@ -576,7 +583,7 @@ angular.module('commuteCalculator.vis', ['ngRoute'])
 				}, geocodeDelay);
 			}
 			else {
-				createMapMarkers();
+				//createMapMarkers();
 			}
 		}
 
@@ -607,38 +614,149 @@ angular.module('commuteCalculator.vis', ['ngRoute'])
 		//This function calls all other map marker functions so that they are displayed on the map.
 		function createMapMarkers() {
 			var locations = CommuteServices.getGeocodedAddresses();
-			//Create the destination markers for the work Locations
-			createDestinationMarkers(codedWorkArr);
+			//Remove any current markers
+			for (var i = 0; i < markersArray.length; i++) {
+				markersArray[i].setMap(null);
+			}
+			for (var i = 0; i < workAddressMarkers.length; i++) {
+				workAddressMarkers[i].setMap(null);
+			}
 			//Create the "heat map" circle markers for the employee locations
 			createEmployeeMarkers(locations);
+			//Create the destination markers for the work Locations
+			createDestinationMarkers(codedWorkArr);
 		}
 
 		//This function will (not yet) create a "heat map" of sorts with the locations of the employees. Currently just shows a faded marker.
 		function createEmployeeMarkers(locations) {
+			markersArray = [];
+			var times = CommuteServices.getTravelTimes();
 			for (var i = 0; i < locations.length; i++) {
 				var location = locations[i];
+				var numNoResults = 0;
+				var descriptionString = location.name;
 
-				var marker = new google.maps.Marker({
-					position: {lat: location.lat, lng: location.lng},
-					map: map,
-					title: location.name
-				}).setOpacity(.5);
+				var sum = 0;
+				for (var j = 0; j < times.length; j++) {
+					switch ($scope.selectedType) {
+						case "Driving":
+							if (times[j].DRIVING[i].status == "ZERO_RESULTS") {
+								numNoResults++;
+							}
+							else {
+								sum += times[j].DRIVING[i].duration.value;
+							}
+							descriptionString += " - " + times[j].DRIVING[i].duration.text;
+							break;
+						case "Bicycling":
+							if (times[j].BICYCLING[i].status == "ZERO_RESULTS") {
+								numNoResults++;
+							}
+							else {
+								sum += times[j].BICYCLING[i].duration.value;
+							}
+							descriptionString += " - " + times[j].BICYCLING[i].duration.text;
+							break;
+						case "Transit":
+							if (times[j].TRANSIT[i].status == "ZERO_RESULTS") {
+								numNoResults++;
+							}
+							else {
+								sum += times[j].TRANSIT[i].duration.value;
+							}
+							descriptionString += " - " + times[j].TRANSIT[i].duration.text;
+							break;
+					}
+				}
+				if ((times.length - numNoResults) == 0) {
+					continue;
+				}
+				var avg = sum/(times.length - numNoResults);
+				var color;
+
+				if (avg < 900) {
+					color = "green";
+				}
+				else if (1800 > avg && avg >= 900) {
+					color = "#31ce4a";
+				}
+				else if (2700 > avg && avg >= 1800) {
+					color = "#ddd300";
+				}
+				else {
+					color = "red";
+				}
+
+				addEmployeeMarkerWithTimeout(
+					{
+						lat: location.lat, lng: location.lng
+					},
+					{
+						path: google.maps.SymbolPath.CIRCLE,
+						scale: 20,
+						strokeWeight: 1,
+						fillColor: color,
+						strokeColor: color,
+						fillOpacity:0.75,
+						zIndex:1,
+						animation: google.maps.Animation.DROP
+					},
+					descriptionString,
+					(i * 50));
 			}
+		}
+
+		function addEmployeeMarkerWithTimeout(position, icon, title, timeout) {
+			window.setTimeout(function() {
+				var marker = new google.maps.Marker({
+					position: position,
+					map: map,
+					icon: icon,
+					title:title,
+					animation: google.maps.Animation.DROP
+				});
+				marker.setOpacity(.5);
+				markersArray.push(marker);
+			}, timeout);
 		}
 
 		//This function marks the locations of all the work locations that have been selected.
 		function createDestinationMarkers(destinations) {
+			workAddressMarkers = [];
 			for (var i = 0; i < destinations.length; i++) {
 				var destination = destinations[i];
 
 				map.setCenter(centralLoc);
 
-				var marker = new google.maps.Marker({
-					position: {lat: destination.lat, lng: destination.lng},
-					map: map,
-					title: destination.address
-				}).setOpacity(1.0);
+				addDestinationMarkerWithTimeout(
+					{
+						lat: destination.lat, lng: destination.lng
+					},
+					{
+						path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+						scale: 10,
+						strokeWeight: 4,
+						fillColor: "black",
+						strokeColor: "black"
+					},
+					destination.address,
+					(i * 200)
+				);
 			}
+		}
+
+		function addDestinationMarkerWithTimeout(position, icon, title, timeout) {
+			window.setTimeout(function() {
+				var marker = new google.maps.Marker({
+					position: position,
+					map: map,
+					icon: icon,
+					title:title,
+					zIndex: google.maps.Marker.MAX_ZINDEX + 100,
+					animation: google.maps.Animation.DROP
+				});
+				workAddressMarkers.push(marker);
+			}, timeout);
 		}
 
 		//This functino finds the center of all the employees so that hopefully they will be shown.

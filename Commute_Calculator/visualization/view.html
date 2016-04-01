@@ -14,9 +14,6 @@
 			<img src="images/transit.svg" style="width:50px;height:50px;">
 		</div>
 
-		<div id="textView" class="divViews" ng-click="changeView('text')">
-			<img src="images/text.svg" style="width: 50px;height:50px;">
-		</div>
 		<div id="radialView" class="divViews" ng-click="changeView('radial')">
 			<img src="images/radial.svg" style="width: 50px;height:50px;">
 		</div>
@@ -25,30 +22,6 @@
 		</div>
 		<div id="mapView" class="divViews" ng-click="changeView('map')" style="text-align:center;color:black;">
 			<i class="fa fa-map-pin" style="font-size:50px;"></i>
-		</div>
-	</div>
-
-	<div ng-show="view == 'text'" style="font-size: 1.5em;margin-top:71px;" ng-repeat="average in averages">
-		<h1>
-			{{selectedType}} Averages from {{average.workAddress}}
-		</h1>
-		<div ng-show="selectedType == 'Driving'">
-			w/o Remotes: {{average.NonRemote.DRIVING.timeString}}
-		</div>
-		<div ng-show="selectedType == 'Bicycling'">
-			w/o Remotes: {{average.NonRemote.BICYCLING.timeString}}
-		</div>
-		<div ng-show="selectedType == 'Transit'">
-			w/o Remotes: {{average.NonRemote.TRANSIT.timeString}}
-		</div>
-		<div ng-show="selectedType == 'Driving'">
-			w/ Remotes: {{average.WithRemote.DRIVING.timeString}}
-		</div>
-		<div ng-show="selectedType == 'Bicycling'">
-			w/ Remotes: {{average.WithRemote.BICYCLING.timeString}}
-		</div>
-		<div ng-show="selectedType == 'Transit'">
-			w/ Remotes: {{average.WithRemote.TRANSIT.timeString}}
 		</div>
 	</div>
 
@@ -163,6 +136,14 @@
 
 	<div ng-show="view == 'map'" class="googleMap">
 		<div id="map" class="googleMapInner"></div>
+		<div id="legend" class="legend">
+			<span style="background: white;border:1px solid black;">
+				<span class="under15">< 15 Min</span>
+				<span class="under30">< 30 Min</span>
+				<span class="under45">< 45 Min</span>
+				<span class="over45">> 45 Min</span>
+			</span>
+		</div>
 	</div>
 
 	<div style="text-align:right;margin-right:20px;">
