@@ -1,0 +1,22 @@
+<div id="wrapper" class="wrapper">
+
+	<!--
+	Need to do some work depending on the style of the tile.
+	Styles:
+	1 - Text Only
+	2 - Picture Only
+	3 - Icon and Text
+	4 - Text and multiple small icons (social)
+	-->
+	<div ng-repeat="tile in tiles" ng-class="tile.class" ng-click="itemClick(tile)" ng-style="{cursor: tile.cursor}">
+		<div>
+			<img ng-if="tile.style == 2 || tile.style == 3" ng-src="{{tile.image}}" class="tileImg">
+			<!--<br ng-if="tile.style == 3"/>-->
+			<p ng-if="tile.style != 2" align="center" ng-bind-html="tile.description"></p>
+			<img ng-if="tile.style == 4" ng-src="{{tile.image[0]}}" class="smallTileImg">
+			<img ng-if="tile.style == 4" ng-src="{{tile.image[1]}}" class="smallTileImg">
+			<img ng-if="tile.style == 4" ng-src="{{tile.image[2]}}" class="smallTileImg">
+		</div>
+	</div>
+</div>
+

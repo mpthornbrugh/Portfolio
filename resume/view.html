@@ -1,0 +1,143 @@
+<div class="resumePage">
+	<div ng-if="!isMobile" style="height:100%;width:100%;">
+		<div id="map" ng-show="showMap" class="resumeGoogleMap"></div>
+		<img ng-show="showMap" ng-click="hideMap()" src="includes/animat-essential/x/animat-x.gif" class="resumeGoogleMapX">
+
+		<a href="includes/Resume%202016.pdf" download="Michael_Thornbrugh_Resume"><button type="button" class="btn btn-primary btn-block" style="font-size: 1em;">Download Resume</button></a>
+
+		<div class="experienceDiv">
+			<span style="display: block;">Experience</span>
+			<div ng-click="openPage(item.website)" ng-repeat="item in experience" class="experienceInnerDiv">
+				<div>
+					<a ng-href="{{item.website}}" target="_blank">{{item.name}}</a>
+				</div>
+				<div>
+					{{item.job_title}}
+				</div>
+				<div style="font-size:18px;border-bottom: 1px solid black;">
+					{{item.from}} - {{item.to}}
+				</div>
+				<div style="font-size:18px;border-bottom: 1px solid black;">
+					{{item.description}}
+				</div>
+				<div style="font-size:18px;border-bottom: 1px solid black;">
+					Skills Used: {{item.skills_used}}
+				</div>
+				<div style="font-size:20px;">
+					Location: <span ng-click="openMap(item)" class="locationSpan">{{item.location}}</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="skillsDiv">
+			<span style="display: block;">Skills</span>
+			<div ng-repeat="item in skills" class="skillsDivInner" style="font-size:18px">
+				<div>
+					{{item.skill}}
+				</div>
+				<div>
+					{{item.length}}
+				</div>
+			</div>
+		</div>
+
+		<div class="educationClassesDiv">
+			<span style="display: block;">Education</span>
+			<div ng-repeat="item in education" class="educationInnerDiv">
+				<div>
+					{{item.school_name}}
+				</div>
+				<div style="font-size: 18px;">
+					{{item.from}} - {{item.to}}
+				</div>
+				<div style="font-size: 20px;">
+					{{item.degree_type}} in {{item.degree_name}}
+				</div>
+				<div style="font-size: 18px">
+					{{item.description}}
+				</div>
+				<div ng-repeat="class in item.classes" class="classInner">
+					<div>
+						{{class.class_name}}
+					</div>
+					<div>
+						({{class.class_num}})
+					</div>
+					<div>
+						{{class.description}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div ng-if="isMobile" style="height:100%;width:100%;">
+		<div id="map" ng-show="showMap" class="resumeGoogleMap"></div>
+		<img ng-show="showMap" ng-click="hideMap()" src="includes/animat-essential/x/animat-x.gif" class="resumeGoogleMapXMobile">
+
+		<a href="#/resume" onclick="window.open('includes/Resume%202016.pdf', 'NewWin');"><button type="button" class="btn btn-primary btn-block" style="font-size: 1em;">View Resume</button></a>
+
+		<div class="experienceDiv">
+			<span style="display: block;">Experience</span>
+			<div ng-click="openPage(item.website)" ng-repeat="item in experience" class="experienceInnerDivMobile">
+				<div>
+					<a ng-href="{{item.website}}" target="_blank">{{item.name}}</a>
+				</div>
+				<div>
+					{{item.job_title}}
+				</div>
+				<div style="font-size:18px;border-bottom: 1px solid black;">
+					{{item.from}} - {{item.to}}
+				</div>
+				<div style="font-size:18px;border-bottom: 1px solid black;">
+					{{item.description}}
+				</div>
+				<div style="font-size:18px;border-bottom: 1px solid black;">
+					Skills Used: {{item.skills_used}}
+				</div>
+				<div style="font-size:20px;">
+					Location: <span ng-click="openMap(item)" class="locationSpan">{{item.location}}</span>
+				</div>
+			</div>
+		</div>
+		<div class="skillsDiv">
+			<span style="display: block;">Skills</span>
+			<div ng-repeat="item in skills" class="skillsDivInnerMobile" style="font-size:18px">
+				<div>
+					{{item.skill}}
+				</div>
+				<div>
+					{{item.length}}
+				</div>
+			</div>
+		</div>
+		<div class="educationClassesDiv">
+			<span style="display: block;">Education</span>
+			<div ng-repeat="item in education" class="educationInnerDiv">
+				<div>
+					{{item.school_name}}
+				</div>
+				<div style="font-size: 18px;">
+					{{item.from}} - {{item.to}}
+				</div>
+				<div style="font-size: 20px;">
+					{{item.degree_type}} in {{item.degree_name}}
+				</div>
+				<div style="font-size: 18px">
+					{{item.description}}
+				</div>
+				<div ng-repeat="class in item.classes" class="classInnerMobile">
+					<div>
+						{{class.class_name}}
+					</div>
+					<div>
+						({{class.class_num}})
+					</div>
+					<div>
+						{{class.description}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

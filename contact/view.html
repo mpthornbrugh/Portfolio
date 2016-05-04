@@ -1,0 +1,11 @@
+<div class="contactPage">
+	<div style="height:50%;width:100%;" ng-repeat="item in contacts">
+		<div id="contactImage" style="height:65%;display:flex;justify-content:center;align-items:center;font-size:2.5vw;">
+			<!--<img ng-src="{{item.image}}" class="contactImage">-->
+			<i ng-click="toClipboard(item.description)" class="fa fa-5x contact-fa" ng-class="item.image" style="cursor:pointer;"></i>
+		</div>
+		<div style="height:35%;display:flex;justify-content:center;align-items:center;">
+			<a ng-click="toClipboard(item.description)">{{item.description}}</a>
+		</div>
+	</div>
+</div>

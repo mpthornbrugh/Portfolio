@@ -1,0 +1,12 @@
+<div class="projectsPage">
+	<div id="slideshow">
+		<div ng-repeat="project in projects" ng-click="gotoPage(project.website)">
+			<span style="display: block;height:65%;"><img ng-src="{{project.image}}" style="height:100%;"></span>
+			<span style="display: block;">{{project.name}}</span>
+			<span style="display: block;font-size:18px;">{{project.description}}</span>
+			<a ng-href="{{project.website}}" target="_blank"><button type="button" class="btn btn-primary btn-block" style="font-size: 1em;background: #b95f51;border:#b95f51;">Go To Project Website</button></a>
+		</div>
+	</div>
+	<i ng-show="!play" ng-click="startSlideshow()" class="fa fa-play" style="font-size:3em;cursor: pointer;"></i>
+	<i ng-show="play" ng-click="stopSlideshow()" class="fa fa-pause" style="font-size:3em;cursor: pointer;"></i>
+</div>

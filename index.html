@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="portfolio">
+<head>
+	<meta charset="UTF-8">
+	<title>Thornbrugh Portfolio</title>
+	<link rel="stylesheet" href="css/portfolio.css">
+	<link rel="stylesheet" href="includes/bootstrap.min.css">
+	<link rel="stylesheet" href="includes/csshake.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<style>
+		body {
+			font-size:30px;
+		}
+	</style>
+</head>
+<body>
+
+<script src="includes/angular.min.js"></script>
+<script src="includes/angular-route.min.js"></script>
+<script src="includes/angular-animate.min.js"></script>
+<script src="includes/angular-sanitize.min.js"></script>
+<script src="includes/jquery.min.js"></script>
+<script src="includes/jquery-ui.min.js"></script>
+<script src="includes/moment.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4BWtGgmTpi6ypJUt-6XY6XDqW41YsRyI"></script>
+<script src="app.js"></script>
+<script src="services.js"></script>
+<script src="main/main.js"></script>
+<script src="about/about.js"></script>
+<script src="contact/contact.js"></script>
+<script src="projects/projects.js"></script>
+<script src="resume/resume.js"></script>
+<script src="social/social.js"></script>
+
+<div class="topBar">
+	<div style="height:100%">
+		<img ng-click="showMenu = !showMenu" src="images/logo.svg" class="topBarImg">
+	</div>
+</div>
+
+<div ng-show="showMenu" class="overlayDiv">
+	<a href="#/main"><div ng-click="showMenu = !showMenu" class="menuDiv">Home</div></a>
+	<a href="#/resume"><div ng-click="showMenu = !showMenu" class="menuDiv">Resume</div></a>
+	<a href="#/about"><div ng-click="showMenu = !showMenu" class="menuDiv">About Me</div></a>
+	<a href="#/projects"><div ng-click="showMenu = !showMenu" class="menuDiv">Projects</div></a>
+	<a href="#/contact"><div ng-click="showMenu = !showMenu" class="menuDiv">Contact Me</div></a>
+	<a href="#/social"><div ng-click="showMenu = !showMenu" class="menuDiv">Social</div></a>
+</div>
+
+<div class="page {{pageClass}}" ng-view></div>
+
+</body>
+</html>
